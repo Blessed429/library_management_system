@@ -32,70 +32,64 @@ def add_bg_from_local(image_file):
                 background-attachment: fixed;
             }}
             
-            /* WHITE BOX styling: Solid white background for all major containers */
-            .stDataFrame, .stPlotlyChart, [data-testid="stMetric"], .stExpander, div[data-testid="stForm"], .stTab, div[class*="stMarkdown"] {{
-                background-color: #FFFFFF;
+            /* Glassmorphism for containers: Semi-transparent dark background */
+            .stDataFrame, .stPlotlyChart, [data-testid="stMetric"], .stExpander, div[data-testid="stForm"], .stTab {{
+                background-color: rgba(0, 0, 0, 0.6); /* Dark semi-transparent */
                 padding: 20px;
                 border-radius: 10px;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                backdrop-filter: blur(5px);
                 margin-bottom: 15px;
             }}
             
-            /* Specific fix for floating text/headers to be in boxes or clearly visible */
+            /* Headlines */
             h1, h2, h3 {{
-                background-color: rgba(255, 255, 255, 0.95);
-                padding: 15px;
-                border-radius: 10px;
-                color: #111827 !important;
+                color: #FFFFFF !important;
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
                 font-weight: 800 !important;
-                display: inline-block; /* Wrap tight around text */
-                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            }}
-
-            /* Typography Enhancements */
-            html, body, [class*="css"] {{
-                font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            }}
-
-            /* General Text Visibility - Ensure contrast */
-            p, li, label, .stMarkdown, .stText {{
-                color: #000000 !important;
-                font-size: 1.2rem !important;
-                font-weight: 600 !important;
-                line-height: 1.6;
             }}
             
-            /* Sidebar Styling - Solid white/grey */
-            section[data-testid="stSidebar"] {{
-                background-color: #F9FAFB;
-                border-right: 1px solid #E5E7EB;
-            }}
-            section[data-testid="stSidebar"] .stMarkdown h1 {{
-                 background-color: transparent; /* Sidebar header doesn't need box if sidebar is solid */
-                 box-shadow: none;
-                 font-size: 2rem !important;
-                 color: #1F2937 !important;
-                 text-align: center;
-                 margin-bottom: 2rem;
-            }}
-
-            /* Input Fields - Solid White */
-            .stTextInput input, .stSelectbox div[data-baseweb="select"], .stNumberInput input {{
-                background-color: #FFFFFF !important;
-                color: #000000 !important;
+             /* General Text Visibility - White for Dark Mode */
+            p, li, label, .stMarkdown, .stText, h4, h5, h6 {{
+                color: #E5E7EB !important; /* Light grey/white */
                 font-size: 1.1rem !important;
-                font-weight: 500;
-                border: 2px solid #E5E7EB;
+                font-weight: 500 !important;
+                line-height: 1.6;
+                text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+            }}
+            
+            /* Sidebar Styling - Darker Glass */
+            section[data-testid="stSidebar"] {{
+                background-color: rgba(17, 24, 39, 0.9);
+                border-right: 1px solid #374151;
+            }}
+            section[data-testid="stSidebar"] div {{
+                color: #FFFFFF !important;
+            }}
+            
+            /* Input Fields - Dark Theme */
+            .stTextInput input, .stSelectbox div[data-baseweb="select"], .stNumberInput input {{
+                background-color: rgba(31, 41, 55, 0.8) !important;
+                color: #FFFFFF !important;
+                border: 1px solid #4B5563;
                 border-radius: 8px;
             }}
             
             /* Buttons */
             .stButton button {{
+                background-color: #2563EB !important;
+                color: white !important;
                 font-weight: 700 !important;
-                font-size: 1.1rem !important;
+                border: none;
                 border-radius: 8px;
-                padding-top: 0.5rem;
-                padding-bottom: 0.5rem;
+            }}
+            .stButton button:hover {{
+                background-color: #1D4ED8 !important;
+            }}
+            
+            /* Tables */
+            [data-testid="stDataFrame"] {{
+                background-color: rgba(31, 41, 55, 0.6);
             }}
             </style>
             """,
